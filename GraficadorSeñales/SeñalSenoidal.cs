@@ -11,12 +11,16 @@ namespace GraficadorSeñales
         public double Amplitud { get; set; }
         public double Fase { get; set; }
         public double Frecuencia { get; set; }
+        public List<Muestra> muestras { get; set; }
+        public double amplitudMaxima { get; set; }
 
         public SeñalSenoidal()
         {
             Amplitud = 1.0;
             Fase = 0.0;
             Frecuencia = 1.0;
+            muestras = new List<Muestra>();
+            amplitudMaxima = 0;
         }
 
         public SeñalSenoidal(double amplitud, double fase, double frecuencia)
@@ -24,6 +28,8 @@ namespace GraficadorSeñales
             this.Amplitud = amplitud;
             this.Fase = fase;
             this.Frecuencia = frecuencia;
+            muestras = new List<Muestra>();
+            amplitudMaxima = 0;
         }
 
         public double evaluar(double tiempo)

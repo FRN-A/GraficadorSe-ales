@@ -36,13 +36,28 @@ namespace GraficadorSeñales
 
             SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);
 
+         
             plnGrafica.Points.Clear();
 
             double periodoMuestro = 1 / frecuenciaMuestreo;
             for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestro)
             {
-                plnGrafica.Points.Add(new Point(i * scrContenedor.Width, (señal.evaluar(i) * ((scrContenedor.Height / 2.0) -30) * -1) + (scrContenedor.Height / 2)));
+                double valorMuestra = señal.evaluar(i);
+
+                if (Math.Abs(valorMuestra) > señal.amplitudMaxima)
+                {
+                    señal.amplitudMaxima = Math.Abs(valorMuestra);
+                }
+                señal.muestras.Add(new Muestra(i, valorMuestra));
+                
+            }
+
+            //recorrer una coleccion o arreglo
+            foreach (Muestra muestra in señal.muestras)
+            {
+                plnGrafica.Points.Add(new Point(muestra.x * scrContenedor.Width, (muestra.y * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
             }
         }
     }
 }
+

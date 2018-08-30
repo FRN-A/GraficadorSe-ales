@@ -19,10 +19,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="165,74,0,0" TextWrapping="Wrap" Text="Tiempo final:" VerticalAlignment="Top"/>
         <TextBox x:Name="txtFrecuenciaMuestreo" HorizontalAlignment="Left" Height="23" Margin="165,152,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="165,131,0,0" TextWrapping="Wrap" Text="Frecuencia de muestreo:" VerticalAlignment="Top"/>
-        <Button Content="Graficar" HorizontalAlignment="Left" Margin="320,38,0,0" VerticalAlignment="Top" Width="75" Name="graficar" Click="graficar_Click"/>
+        <Button Content="Graficar señal senoidal" HorizontalAlignment="Left" Margin="320,38,0,0" VerticalAlignment="Top" Width="192" Name="graficar" Click="graficar_Click"/>
         <ScrollViewer x:Name="scrContenedor" HorizontalAlignment="Left" Height="229" Margin="0,175,0,0" VerticalAlignment="Top" Width="772" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
             <Polyline Stroke="Black" StrokeThickness="2" Name="plnGrafica"></Polyline>
         </ScrollViewer>
+        <Button Content="Graficar señal rampa" HorizontalAlignment="Left" Margin="320,98,0,0" VerticalAlignment="Top" Width="192" x:Name="btnGraficarRampa" Click="btnGraficarRampa_Click"/>
 
     </Grid>
 </Window>

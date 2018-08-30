@@ -36,7 +36,7 @@ namespace GraficadorSeñales
 
             SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);
 
-         
+
             plnGrafica.Points.Clear();
 
             double periodoMuestro = 1 / frecuenciaMuestreo;
@@ -49,7 +49,7 @@ namespace GraficadorSeñales
                     señal.amplitudMaxima = Math.Abs(valorMuestra);
                 }
                 señal.muestras.Add(new Muestra(i, valorMuestra));
-                
+
             }
 
             //recorrer una coleccion o arreglo
@@ -58,6 +58,27 @@ namespace GraficadorSeñales
                 plnGrafica.Points.Add(new Point(muestra.x * scrContenedor.Width, (muestra.y * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
             }
         }
+
+        private void btnGraficarRampa_Click(object sender, RoutedEventArgs e)
+        {
+            double tiempoInicial = double.Parse(txtTiempoInicial.Text);
+            double tiempoFinal = double.Parse(txtTiempoFinal.Text);
+            double frecuenciaMuestreo = double.Parse(txtFrecuenciaMuestreo.Text);
+
+            Rampa rampa = new Rampa();
+            plnGrafica.Points.Clear();
+
+            double periodoMuestro = 1 / frecuenciaMuestreo;
+
+            for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestro)
+            {
+                double valorMuestra = rampa.evaluar(i);
+                rampa.muestras.Add(new Muestra(i, valorMuestra));
+            }
+            foreach (Muestra muestra in rampa.muestras)
+            {
+                plnGrafica.Points.Add(new Point(muestra.x * scrContenedor.Width, (muestra.y * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
+            }
+        }
     }
 }
-

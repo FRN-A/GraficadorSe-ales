@@ -55,8 +55,11 @@ namespace GraficadorSeñales
             //recorrer una coleccion o arreglo
             foreach (Muestra muestra in señal.muestras)
             {
-                plnGrafica.Points.Add(new Point(muestra.x * scrContenedor.Width, (muestra.y * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
+                plnGrafica.Points.Add(new Point(muestra.x * scrContenedor.Width, (muestra.y / señal.amplitudMaxima * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
             }
+
+            lblAmplitudMaximaY.Text = señal.amplitudMaxima.ToString();
+            lblAmplitudMaximaNegativaY.Text = "-" + señal.amplitudMaxima.ToString();
         }
 
         private void btnGraficarRampa_Click(object sender, RoutedEventArgs e)

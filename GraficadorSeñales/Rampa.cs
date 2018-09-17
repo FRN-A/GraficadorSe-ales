@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace GraficadorSeñales
 {
-    class Rampa
+    class Rampa : Señal
     {
-        public List<Muestra> muestras { get; set; }
+        
 
         public Rampa()
         {
             muestras = new List<Muestra>();
         }
 
-        public double evaluar(double tiempo)
+        public override double evaluar(double tiempo)
         {
             double resultado;
             if (tiempo < 0)

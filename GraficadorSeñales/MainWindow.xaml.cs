@@ -34,29 +34,42 @@ namespace GraficadorSeñales
             double frecuencia = double.Parse(txtFrecuencia.Text);
             double frecuenciaMuestreo = double.Parse(txtFrecuenciaMuestreo.Text);
 
-            SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);
+            Señal señal;
 
+            switch (cbTipoSeñal.SelectedIndex)
+            {
+                //Seniodal
+                case 0: señal = new SeñalSenoidal(amplitud, fase, frecuencia);
+                    break;
+                //Rampa
+                case 1: señal = new Rampa();
+                    break;
+                default: señal = null;
+                    break;
+            }
 
+            señal.tiempoFinal = tiempoFinal;
+            señal.tiempoInicial = tiempoInicial;
+            señal.frecuenciaMuestreo = frecuenciaMuestreo;
+
+            señal.construirSeñalDigital();
             plnGrafica.Points.Clear();
 
-            double periodoMuestro = 1 / frecuenciaMuestreo;
-            for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestro)
+            if (señal != null)
             {
-                double valorMuestra = señal.evaluar(i);
-
-                if (Math.Abs(valorMuestra) > señal.amplitudMaxima)
+                //recorrer una coleccion o arreglo
+                foreach (Muestra muestra in señal.muestras)
                 {
-                    señal.amplitudMaxima = Math.Abs(valorMuestra);
+                    plnGrafica.Points.Add(new Point((muestra.x - tiempoInicial) * scrContenedor.Width, (muestra.y / señal.amplitudMaxima * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
                 }
-                señal.muestras.Add(new Muestra(i, valorMuestra));
 
+                lblAmplitudMaximaY.Text = señal.amplitudMaxima.ToString();
+                lblAmplitudMaximaNegativaY.Text = "-" + señal.amplitudMaxima.ToString();
             }
 
-            //recorrer una coleccion o arreglo
-            foreach (Muestra muestra in señal.muestras)
-            {
-                plnGrafica.Points.Add(new Point((muestra.x - tiempoInicial) * scrContenedor.Width, (muestra.y / señal.amplitudMaxima * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
-            }
+           
+
+            
 
             plnEjeX.Points.Clear();
             //punto del principio
@@ -69,9 +82,6 @@ namespace GraficadorSeñales
             plnEjeY.Points.Add(new Point((0 - tiempoInicial) * scrContenedor.Width, (1 * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
             //punto del fin
             plnEjeY.Points.Add(new Point((0 - tiempoInicial) * scrContenedor.Width, (-1 * ((scrContenedor.Height / 2.0) - 30) * -1) + (scrContenedor.Height / 2)));
-
-            lblAmplitudMaximaY.Text = señal.amplitudMaxima.ToString();
-            lblAmplitudMaximaNegativaY.Text = "-" + señal.amplitudMaxima.ToString();
         }
 
         private void btnGraficarRampa_Click(object sender, RoutedEventArgs e)

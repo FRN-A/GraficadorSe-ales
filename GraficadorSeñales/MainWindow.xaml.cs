@@ -37,28 +37,33 @@ namespace GraficadorSeñales
             {
                 //Seniodal
                 case 0:
-                   /* double amplitud = double.Parse(txtAmplitud.Text);
-                    double fase = double.Parse(txtFase.Text);
-                    double frecuencia = double.Parse(txtFrecuencia.Text);
-                    */
-                    señal = new SeñalSenoidal(6, 0, 10);
+                    double amplitud = double.Parse(((ConfiguracionSeñalSenoidal)panelConfiguracion.Children[0]).txtAmplitud.Text);
+                    double fase = double.Parse(((ConfiguracionSeñalSenoidal)panelConfiguracion.Children[0]).txtFase.Text);
+                    double frecuencia = double.Parse(((ConfiguracionSeñalSenoidal)panelConfiguracion.Children[0]).txtFrecuencia.Text);
+                    señal = new SeñalSenoidal(amplitud, fase, frecuencia);
                     break;
                 //Rampa
                 case 1: señal = new Rampa();
+                    break;
+                    // Exponencial
+                case 2:
+                    double alpha = double.Parse(((ConfiguracionSeñalExponencial)panelConfiguracion.Children[0]).txtAlpha.Text);
+                    señal = new SeñalExponencial(alpha);
                     break;
                 default: señal = null;
                     break;
             }
 
-            señal.tiempoFinal = tiempoFinal;
-            señal.tiempoInicial = tiempoInicial;
-            señal.frecuenciaMuestreo = frecuenciaMuestreo;
-
-            señal.construirSeñalDigital();
+            
             plnGrafica.Points.Clear();
 
             if (señal != null)
             {
+                señal.tiempoFinal = tiempoFinal;
+                señal.tiempoInicial = tiempoInicial;
+                señal.frecuenciaMuestreo = frecuenciaMuestreo;
+
+                señal.construirSeñalDigital();
                 //recorrer una coleccion o arreglo
                 foreach (Muestra muestra in señal.muestras)
                 {
@@ -118,7 +123,10 @@ namespace GraficadorSeñales
                     case 0: //Senoidal
                         panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
                         break;
-                    case 1:
+                    case 1: //rampa
+                        break;
+                    case 2: //Exponencial
+                        panelConfiguracion.Children.Add(new ConfiguracionSeñalExponencial());
                         break;
                     default:
                         break;

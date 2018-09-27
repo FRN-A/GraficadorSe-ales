@@ -55,6 +55,11 @@ namespace GraficadorSeñales
             }
 
             
+            
+
+          
+            
+            
             plnGrafica.Points.Clear();
 
             if (señal != null)
@@ -62,8 +67,25 @@ namespace GraficadorSeñales
                 señal.tiempoFinal = tiempoFinal;
                 señal.tiempoInicial = tiempoInicial;
                 señal.frecuenciaMuestreo = frecuenciaMuestreo;
-
+                
+                //contruir señal
                 señal.construirSeñalDigital();
+                //ecalar
+                if ((bool)chbEscala.IsChecked)
+                {
+                    double factorEscala = double.Parse(txtEscalaAmplitud.Text);
+                    señal.escalar(factorEscala);
+                }
+                //desplazamiento
+                if ((bool)chbDesplazamiento.IsChecked)
+                {
+                    double desplazamiento = double.Parse(txtDesplazamientoY.Text);
+                    señal.desplazarY(desplazamiento);
+                }
+
+                //actualizar amplitud maxima
+                señal.actualizarAmplitudMaxima();
+                
                 //recorrer una coleccion o arreglo
                 foreach (Muestra muestra in señal.muestras)
                 {

@@ -67,5 +67,10 @@ namespace GraficadorSeñales
                     muestra.y = -n;
             }
         }
+
+        public static Señal sumar(Señal sumando1, Señal sumando2)
+        {
+            return null;
+        }
     }
 }

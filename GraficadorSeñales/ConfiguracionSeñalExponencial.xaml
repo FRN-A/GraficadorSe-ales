@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:GraficadorSeñales"
              mc:Ignorable="d" Height="68.092" Width="139.803">
     <Grid>
-        <TextBox x:Name="txtAlpha" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Alpha" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAlpha" HorizontalAlignment="Left" Height="23" Margin="0,21,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alpha" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

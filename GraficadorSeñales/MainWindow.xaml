@@ -58,18 +58,20 @@
         <TextBox x:Name="txtTruncar_segundaSeñal" HorizontalAlignment="Left" Height="23" Margin="462,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=chbTruncar_segundaSeñal}"/>
         <TextBlock HorizontalAlignment="Left" Margin="462,179,0,0" TextWrapping="Wrap" Text="Truncar:" VerticalAlignment="Top"/>
         
-        <TextBlock x:Name="lblAmplitudMaximaY_Copy" HorizontalAlignment="Left" Margin="24,552,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblAmplitudMaximaNegativaY_Copy" HorizontalAlignment="Left" Margin="24,721,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblAmplitud0_Copy" HorizontalAlignment="Left" Margin="24,639,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblAmplitudMaximaY_Resultado" HorizontalAlignment="Left" Margin="24,552,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblAmplitudMaximaNegativaY_Resultado" HorizontalAlignment="Left" Margin="24,721,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblAmplitud0_Resultado" HorizontalAlignment="Left" Margin="24,639,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="638,211,0,0" TextWrapping="Wrap" Text="Operación:" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbOperacion" HorizontalAlignment="Left" Margin="638,232,0,0" VerticalAlignment="Top" Width="129">
+        <ComboBox x:Name="cbOperacion" HorizontalAlignment="Left" Margin="638,232,0,0" VerticalAlignment="Top" Width="129" SelectedIndex="0">
             <ComboBoxItem>Suma</ComboBoxItem>
             <ComboBoxItem>Multiplicación</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnRealizarOperacion" Content="Realizar operación" HorizontalAlignment="Left" Margin="639,268,0,0" VerticalAlignment="Top" Width="128"/>
+        <Button x:Name="btnRealizarOperacion" Content="Realizar operación" HorizontalAlignment="Left" Margin="639,268,0,0" VerticalAlignment="Top" Width="128" Click="btnRealizarOperacion_Click"/>
         <ScrollViewer x:Name="scrContenedorResultado" HorizontalAlignment="Left" Height="229" Margin="75,534,0,0" VerticalAlignment="Top" Width="701" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
             <Grid>
                 <Polyline Stroke="CornflowerBlue" StrokeThickness="2" x:Name="plnResultado"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeXResultado"></Polyline>
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeYResultado"></Polyline>
             </Grid>
         </ScrollViewer>
 

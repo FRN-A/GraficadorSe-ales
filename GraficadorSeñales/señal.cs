@@ -70,7 +70,23 @@ namespace GraficadorSeñales
 
         public static Señal sumar(Señal sumando1, Señal sumando2)
         {
-            return null;
+            SeñalPersonalizada resultado = new SeñalPersonalizada();
+
+            resultado.tiempoInicial = sumando1.tiempoInicial;
+            resultado.tiempoFinal = sumando1.tiempoFinal;
+            resultado.frecuenciaMuestreo = sumando1.frecuenciaMuestreo;
+
+            int indice = 0;
+            foreach (Muestra muestra in sumando1.muestras)
+            {
+                Muestra muestraResultado = new Muestra();
+                muestraResultado.x = muestra.x;
+                muestraResultado.y = muestra.y + sumando2.muestras[indice++].y;
+
+                resultado.muestras.Add(muestraResultado);
+            }
+
+            return resultado;
         }
     }
 }

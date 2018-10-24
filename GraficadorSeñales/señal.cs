@@ -88,5 +88,26 @@ namespace GraficadorSeñales
 
             return resultado;
         }
+
+        public static Señal multiplicar(Señal señal1, Señal señal2)
+        {
+            SeñalPersonalizada resultado = new SeñalPersonalizada();
+
+            resultado.tiempoInicial = señal1.tiempoInicial;
+            resultado.tiempoFinal = señal1.tiempoFinal;
+            resultado.frecuenciaMuestreo = señal1.frecuenciaMuestreo;
+
+            int indice = 0;
+            foreach (Muestra muestra in señal1.muestras)
+            {
+                Muestra muestraResultado = new Muestra();
+                muestraResultado.x = muestra.x;
+                muestraResultado.y = muestra.y * señal2.muestras[indice++].y;
+
+                resultado.muestras.Add(muestraResultado);
+            }
+
+            return resultado;
+        }
     }
 }

@@ -252,6 +252,7 @@ namespace GraficadorSeñales
                     señalResultado = Señal.sumar(señal, segundaSeñal);
                     break;
                 case 1: //Multiplicacion
+                    señalResultado = Señal.multiplicar(señal, segundaSeñal);
                     break;
                 default:
                     break;

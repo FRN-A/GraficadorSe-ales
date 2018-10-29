@@ -65,6 +65,7 @@
         <ComboBox x:Name="cbOperacion" HorizontalAlignment="Left" Margin="638,232,0,0" VerticalAlignment="Top" Width="129" SelectedIndex="0">
             <ComboBoxItem>Suma</ComboBoxItem>
             <ComboBoxItem>Multiplicación</ComboBoxItem>
+            <ComboBoxItem>Convolución</ComboBoxItem>
         </ComboBox>
         <Button x:Name="btnRealizarOperacion" Content="Realizar operación" HorizontalAlignment="Left" Margin="639,268,0,0" VerticalAlignment="Top" Width="128" Click="btnRealizarOperacion_Click"/>
         <ScrollViewer x:Name="scrContenedorResultado" HorizontalAlignment="Left" Height="229" Margin="75,534,0,0" VerticalAlignment="Top" Width="701" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">

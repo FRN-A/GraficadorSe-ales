@@ -30,6 +30,7 @@
             <ComboBoxItem>Señal Senoidal</ComboBoxItem>
             <ComboBoxItem>Señal rampa</ComboBoxItem>
             <ComboBoxItem>Señal Exponencial</ComboBoxItem>
+            <ComboBoxItem>Señal Rectangular</ComboBoxItem>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="14,8,0,0" TextWrapping="Wrap" Text="Tipo de señal:" VerticalAlignment="Top"/>
         <TextBox x:Name="txtEscalaAmplitud" HorizontalAlignment="Left" Height="23" Margin="152,88,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" IsEnabled="{Binding ElementName=chbEscala, Path=IsChecked}"/>
@@ -46,6 +47,7 @@
             <ComboBoxItem Content="Señal Senoidal"/>
             <ComboBoxItem Content="Señal rampa"/>
             <ComboBoxItem Content="Señal Exponencial"/>
+            <ComboBoxItem>Señal Rectangular</ComboBoxItem>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="325,8,0,0" TextWrapping="Wrap" Text="Tipo de señal:" VerticalAlignment="Top"/>
         <TextBox x:Name="txtEscalaAmplitud_segundaSeñal" HorizontalAlignment="Left" Height="23" Margin="463,88,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=chbEscala_segundaSeñal}"/>

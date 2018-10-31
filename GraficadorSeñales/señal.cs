@@ -121,7 +121,7 @@ namespace GraficadorSeñales
             double periodoMuestreo = 1 / resultado.frecuenciaMuestreo;
 
            
-            double cantidadMuestrasResultado = periodoMuestreo * (resultado.tiempoFinal - resultado.tiempoInicial);
+            double cantidadMuestrasResultado = resultado.frecuenciaMuestreo * (resultado.tiempoFinal - resultado.tiempoInicial);
             double instanteActual = resultado.tiempoInicial;
             for (int n = 0; n < cantidadMuestrasResultado; n++)
             {

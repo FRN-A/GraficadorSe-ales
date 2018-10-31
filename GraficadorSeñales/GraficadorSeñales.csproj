@@ -65,6 +65,7 @@
     <Compile Include="Señal.cs" />
     <Compile Include="SeñalExponencial.cs" />
     <Compile Include="SeñalPersonalizada.cs" />
+    <Compile Include="SeñalRectangular.cs" />
     <Compile Include="SeñalSenoidal.cs" />
     <Page Include="ConfiguracionSeñalExponencial.xaml">
       <SubType>Designer</SubType>
